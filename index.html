@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TilesViewer</title>
+<script type="text/javascript" language="javascript" src="javascript/mootools-core.js"></script>
+<script type="text/javascript" language="javascript" src="javascript/TileViewer.js"></script>
+<script type="text/javascript" language="javascript">
+
+	window.addEvent('domready', function()
+	{
+		var tiles = new TileViewer('div.tile', 'assets/karo.jpg', {assets_directory: 'assets'});
+		
+		$('get_it').addEvent('click', function(e)
+		{
+			e.stop();
+		
+			var pos = tiles.getPosition();
+			alert('Position X: ' + pos.x + "\n" + 'Position Y: ' + pos.y);
+		});
+	});
+
+</script>
+<style type="text/css">
+
+	#tiles { width: 400px; }
+	#tiles div.tile { float: left; width: 200px; height: 200px; background-color: #CCC; }
+
+</style>
+</head>
+
+<body>
+
+	<p>
+    	Drag the tiled background to pisition it. <br />
+        After positioning press »Go'n Get It!« to get the position.
+	</p>
+
+	<div id="tiles">
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+		<div class="tile"></div>
+	</div>
+    
+	<br style="clear:both;" />
+	<br />
+    
+	<input type="button" id="get_it" value="Go'n Get It!" />
+
+</body>
+</html>
